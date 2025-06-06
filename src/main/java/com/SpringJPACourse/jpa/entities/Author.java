@@ -3,10 +3,13 @@ package com.SpringJPACourse.jpa.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-@Table(name = "Author-TBL")
 public class Author {
 
     // * VALUE GENERATION FOR PRIMARY KEYS STRATEGIES *
@@ -65,6 +68,9 @@ public class Author {
     private String email;
 
     private int age;
+
+    @ManyToMany(mappedBy = "authors")
+    private List<Course> courses;
 
 
 }
