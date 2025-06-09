@@ -3,21 +3,29 @@ package com.SpringJPACourse.jpa.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Entity
-public class Resources {
+@SuperBuilder
+@MappedSuperclass
+public class BaseEntity {
+
     @Id
     @GeneratedValue
     private Integer id;
-    private String name;
-    private int size;
-    private String url;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime lastModifiedAt;
+
+    private String createdBy;
+    private String lastModifiedBy;
 }

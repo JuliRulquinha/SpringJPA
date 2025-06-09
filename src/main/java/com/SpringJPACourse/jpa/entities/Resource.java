@@ -10,16 +10,13 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-public class Lecture extends BaseEntity {
-
-
+public class Resource extends BaseEntity{
+   
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "section-id")
-    private Section section;
+    private int size;
+    private String url;
 
     @OneToOne
-    @JoinColumn(name = "resource_id")
-    private Resource resource;
+    @JoinColumn(name = "lecture_id")
+    private Lecture lecture;
 }

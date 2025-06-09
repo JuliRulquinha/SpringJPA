@@ -2,15 +2,17 @@ package com.SpringJPACourse.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
-public class Author {
+public class Author extends BaseEntity {
 
     // * VALUE GENERATION FOR PRIMARY KEYS STRATEGIES *
     /*
@@ -52,9 +54,7 @@ public class Author {
 
     */
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+
 
     @Column( name = "f-name")
     private String firstName;
