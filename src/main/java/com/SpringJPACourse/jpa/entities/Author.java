@@ -1,8 +1,10 @@
 package com.SpringJPACourse.jpa.entities;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.springframework.data.jpa.repository.Modifying;
 
 import java.util.List;
 
@@ -12,6 +14,18 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                name = "Author.findByNamedQuery",
+                query = "select a from Author a where a.age >= :age"
+        ),
+
+        @NamedQuery(
+                name = "Author.updateByNamedQuery",
+                query = "update Author a set a.age = :age"
+        )}
+)
+
 public class Author extends BaseEntity {
 
     // * VALUE GENERATION FOR PRIMARY KEYS STRATEGIES *

@@ -50,8 +50,14 @@ public class JpaApplication {
 			//authorRepository.updateAuthorAge(22,1);
 
 
-			authorRepository.updateAllAuthorsAges(99);
+			//authorRepository.updateAllAuthorsAges(99);
 
+			//authorRepository.findByNamedQuery(24)
+//					.forEach(author -> {
+//						System.out.println(author.getAge());
+//					});
+
+			authorRepository.updateByNamedQuery(99);
 
 			/*var video = Video.builder()
 					.name("abc")
